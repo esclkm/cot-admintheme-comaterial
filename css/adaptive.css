@@ -1,0 +1,154 @@
+@media only screen and (min-width: 992px) {
+	#navbar {
+		height: 66px;
+
+	}
+	#navbar>ul>li {
+		width: 100px;
+	}
+	#navbar>ul>li>a {
+		padding: 36px 0 5px;
+	}
+	#navbar>ul>li>a:before {
+		display: block;
+		display: block;
+		top:10px;
+		left:4px;
+		right:4px;
+	}
+	h1, #sitetitle {
+		text-shadow: 0 1px 0 #104266;
+	}
+	#sitetitle {
+		position: absolute;
+		top: 64px;
+		right: 20px;
+		padding: 12px 20px;
+		float: right;
+		z-index: 100;
+		color: #fff;
+	}
+	#sitetitle a {
+		color: #fff;
+	}
+}
+@media only screen and (min-width: 1152px) { 
+
+	#navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: #0b0b0b;
+		height: 100%;
+		width: 100px;
+	}	
+
+	#navbar>ul {
+		padding: 15px 0;
+	}
+	#navbar>ul>li {
+		clear: both;
+		display: block;
+		width: 100%;
+	}
+	#navbar>ul>li>a {
+		padding: 36px 0 5px;
+	}
+	#navbar>ul>li>a:before {
+		display: block;
+		top:6px;
+		left:4px;
+		right:4px;
+	}
+	.body {
+		padding-left: 100px;
+		margin: 0 auto;
+	}
+	#sitetitle {
+		position: absolute;
+		top: 0px;
+		right: 20px;
+		padding: 12px 20px;
+		float: right;
+		z-index: 100;
+	}
+
+	.buttonpanel .button{
+		width: auto;
+	}
+	table.cells td {
+		padding: 8px 8px;
+	}
+	table.cells .coltop {
+		padding: 12px 8px;
+	}
+	#messagebar {
+		left: 160px;
+	}
+}
+
+@media only screen and (min-width: 1610px) { 
+
+	#navbar {
+		width: 200px;
+	}	
+
+	#navbar>ul>li>a {
+		padding: 8px 0 10px 48px;
+		text-align: left;
+		font-size: 14px;
+	}
+	#navbar>ul>li>a:before {
+		display: block;
+		float: left;
+		left:6px;
+		top:6px;
+		margin: auto 0;
+		width:32px;
+	}
+	#navbar>ul>li.bottom{
+		display: block;
+	}
+	#navbar>ul>li.bottom>a {
+		background: #0b0b0b;
+		top: auto;
+		left: 0px;
+		right: auto;
+		bottom: 0px;
+		position: absolute;
+		width: 152px;
+	}
+	.body {
+		padding-left: 200px;
+		max-width: 1480px;
+		margin: 0 auto;
+	}
+	#messagebar {
+		left: 260px;
+	}
+	#resolution_control div a {
+		color: #fff;
+		/*font-weight: bold;*/
+		display: block;
+		padding: 6px 15px; 
+		position: relative;
+	}
+	#resolution_control div a:hover {
+		color: #fff;
+		display: block;
+		background-color: #497EAC;
+		text-decoration: none;
+	}
+	#resolution_control div{
+		display: none;
+		background-color: #333!important;
+		left: 0px;
+		bottom: 41px;
+		width: 200px;
+		position: absolute;
+	}
+	#resolution_control:hover div{
+		display: block;
+	}	
+
+}
