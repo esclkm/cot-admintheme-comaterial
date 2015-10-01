@@ -7,10 +7,10 @@
 {FILE "{PHP.cfg.themes_dir}/admin/cpanel/warnings.tpl"}
 
 <!-- BEGIN: ADMIN_CACHE_MEMORY -->
+<h3>{ADMIN_CACHE_MEMORY_DRIVER}</h3>
+
 <div class="panel panel-default margintop20">
-    <div class="panel-heading">
-        <h4 class="panel-title">{ADMIN_CACHE_MEMORY_DRIVER}</h4>
-    </div>
+
     <div class="panel-body">
         <div class="progress">
             <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{ADMIN_CACHE_MEMORY_PERCENTBAR}"
@@ -25,36 +25,36 @@
 </div>
 <!-- END: ADMIN_CACHE_MEMORY -->
 
+<h3>{PHP.L.Database}</h3>
+
 <div class="panel panel-default margintop20">
-    <div class="panel-heading">
-        <h4 class="panel-title">{PHP.L.Database}</h4>
-    </div>
     <div class="panel-body">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="width20">{PHP.L.Item}</th>
-                    <th class="width10">{PHP.L.Expire}</th>
-                    <th class="width10 text-center">{PHP.L.Size}</th>
-                    <th class="width50">{PHP.L.Value}</th>
-                    <th class="width10 text-center">{PHP.L.Delete}</th>
+                    <th class="col-xs-6 col-sm-6 col-md-3">{PHP.L.Item}</th>
+                    <th class="hidden-xs hidden-sm hidden-md col-lg-2 text-center">{PHP.L.Expire}</th>
+                    <th class="hidden-xs col-sm-3 col-md-2 text-center">{PHP.L.Size}</th>
+                    <th class="hidden-xs hidden-sm col-md-3">{PHP.L.Value}</th>
+                    <th class="col-xs-6 col-sm-3  col-md-2 text-center">{PHP.L.Delete}</th>
                 </tr>
             </thead>
             <!-- BEGIN: ADMIN_CACHE_ROW -->
             <tr>
                 <td>{ADMIN_CACHE_ITEM_NAME}</td>
-                <td class="text-center">{ADMIN_CACHE_EXPIRE}</td>
-                <td class="text-center">{ADMIN_CACHE_SIZE}</td>
-                <td>{ADMIN_CACHE_VALUE}</td>
-                <td class="text-center">
+                <td class="hidden-xs hidden-sm text-center">{ADMIN_CACHE_EXPIRE}</td>
+                <td class="hidden-xs">{ADMIN_CACHE_SIZE}</td>
+                <td class="hidden-xs hidden-sm text-center">{ADMIN_CACHE_VALUE}</td>
+                <td class="">
                     <a title="{PHP.L.Delete}" href="{ADMIN_CACHE_ITEM_DEL_URL}" class="ajax btn btn-danger btn-sm"><span class="fa fa fa-times-circle"></span> {PHP.L.Delete}</a>
                 </td>
             </tr>
             <!-- END: ADMIN_CACHE_ROW -->
             <tr class="strong">
-                <td class="text-center" colspan="2">{PHP.L.Total}:</td>
-                <td class="text-center">{ADMIN_CACHE_CACHESIZE}</td>
-                <td>&nbsp;</td>
+                <td class=""><strong>{PHP.L.Total}:</strong></td>
+				<td class="hidden-xs hidden-sm text-center">&nbsp;</td>
+                <td class="hidden-xs text-center">{ADMIN_CACHE_CACHESIZE}</td>
+                <td class="hidden-xs hidden-sm text-center">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>

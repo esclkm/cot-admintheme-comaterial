@@ -2,28 +2,7 @@
 {FILE "{PHP.cfg.themes_dir}/admin/cpanel/warnings.tpl"}
 
 <!-- BEGIN: DETAILS -->
-<!-- IF {PHP.isinstalled} AND {PHP.exists} -->
-<ul class="marginbottom20 nav nav-pills">
-		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL} -->
-		<li><a title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}" class="">
-				<span class="fa fa-folder-open"></span> {PHP.L.Open}</a></li>
-		<!-- ENDIF -->
-		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS} -->
-		<li><a title="{PHP.L.Administration}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS}" class="">
-			<span class="fa fa-cogs"></span> {PHP.L.Administration}</a></li>
-		<!-- ENDIF -->
-		<!-- IF {ADMIN_EXTENSIONS_TOTALCONFIG} > 0 -->
-		<li><a title="{PHP.L.Configuration}" href="{ADMIN_EXTENSIONS_CONFIG_URL}" class="">
-			<span class="fa fa-wrench"></span> {PHP.L.Configuration} ({ADMIN_EXTENSIONS_TOTALCONFIG})</a></li>
-		<!-- ENDIF -->
-		<li><a title="{PHP.L.Rights}" href="{ADMIN_EXTENSIONS_RIGHTS}" class="">
-			<span class="fa fa-users"></span> {PHP.L.short_rights}</a></li>
-		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT} -->
-		<li><a title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}" class="">
-			<span class="fa fa-sitemap"></span> {PHP.L.Structure}</a></li>
-		<!-- ENDIF -->
-</ul>
-<!-- ENDIF -->
+
 <div class="panel panel-default margintop20">
 	<div class="panel-body">
 		<div class="row">
@@ -86,22 +65,44 @@
 		</div>
 	</div>
 </div>
-<div class="marginbottom20 text-right">
+							
+<div class="marginbottom20 pull-right">
 	<!-- IF !{PHP.isinstalled} AND {PHP.dependencies_satisfied} -->
-	<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_INSTALL_URL}" class="btn btn-success marginbottom10"
+	<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_INSTALL_URL}" class="btn btn-success"
 	   data-toggle="tooltip"><span class="fa fa-check"></span> {PHP.L.adm_opt_install}</a>
 	<!-- ENDIF -->
 	<!-- IF {PHP.isinstalled} -->
 	<!-- IF {PHP.exists} -->
-	<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_UPDATE_URL}" class="btn btn-primary marginbottom10"
+	<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_UPDATE_URL}" class="btn btn-primary"
 	   data-toggle="tooltip"><span class="fa fa-refresh"></span> {PHP.L.adm_opt_update}</a>
 	<!-- ENDIF -->
 
-	<a title="{PHP.L.adm_opt_uninstall_explain}" href="{ADMIN_EXTENSIONS_UNINSTALL_URL}" class="btn btn-danger marginbottom10"
+	<a title="{PHP.L.adm_opt_uninstall_explain}" href="{ADMIN_EXTENSIONS_UNINSTALL_URL}" class="btn btn-danger"
 	   data-toggle="tooltip"><span class="fa fa-trash-o"></span> {PHP.L.adm_opt_uninstall}</a>
 	<!-- ENDIF -->
 </div>
-
+<!-- IF {PHP.isinstalled} AND {PHP.exists} -->
+<ul class="marginbottom20 nav nav-pills">
+		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL} -->
+		<li><a title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}" class="">
+				<span class="fa fa-folder-open"></span> {PHP.L.Open}</a></li>
+		<!-- ENDIF -->
+		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS} -->
+		<li><a title="{PHP.L.Administration}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS}" class="">
+			<span class="fa fa-cogs"></span> {PHP.L.Administration}</a></li>
+		<!-- ENDIF -->
+		<!-- IF {ADMIN_EXTENSIONS_TOTALCONFIG} > 0 -->
+		<li><a title="{PHP.L.Configuration}" href="{ADMIN_EXTENSIONS_CONFIG_URL}" class="">
+			<span class="fa fa-wrench"></span> {PHP.L.Configuration} ({ADMIN_EXTENSIONS_TOTALCONFIG})</a></li>
+		<!-- ENDIF -->
+		<li><a title="{PHP.L.Rights}" href="{ADMIN_EXTENSIONS_RIGHTS}" class="">
+			<span class="fa fa-users"></span> {PHP.L.short_rights}</a></li>
+		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT} -->
+		<li><a title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}" class="">
+			<span class="fa fa-sitemap"></span> {PHP.L.Structure}</a></li>
+		<!-- ENDIF -->
+</ul>
+<!-- ENDIF -->
 
 
 			

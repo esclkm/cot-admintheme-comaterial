@@ -1,6 +1,6 @@
 <!-- BEGIN: MAIN -->
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-7">
 		<!-- BEGIN: UPDATE -->
 		<div class="block">
 			<h3>{PHP.L.adminqv_update_notice}:</h3>
@@ -13,6 +13,14 @@
 		<!-- END: MAINPANEL -->
 
 			<h3>Cotonti:</h3>
+			<ul class="list-group">
+			  <li class="list-group-item">
+				<span class="badge">{ADMIN_HOME_VERSION}</span>{PHP.L.Version}
+			  </li>
+			  <li class="list-group-item">
+				<span class="badge">{ADMIN_HOME_DB_VERSION}</span>{PHP.L.Database}
+			  </li>			  
+			</ul>
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div>
@@ -51,19 +59,14 @@
 		</div>
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-5">
 		<div class="block">
 			<h3>{PHP.L.Core}</h3>
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<ul class="nav nav-pills">
-						<li><a href="{PHP|cot_url('admin','m=cache')}" class="">{PHP.L.adm_internalcache}</a></li>
-						<li><a href="{PHP|cot_url('admin','m=cache&s=disk')}" class="">{PHP.L.adm_diskcache}</a></li>
-						<li><a href="{PHP|cot_url('admin','m=log')}" class="">{PHP.L.Log}</a></li>
-						<li><a href="{PHP|cot_url('admin','m=infos')}" class="">{PHP.L.adm_infos}</a></li>
-
-					</ul>
-				</div>
+			<div class="list-group">
+					<a href="{PHP|cot_url('admin','m=cache')}"  class="ajax list-group-item">{PHP.L.adm_internalcache}</a>
+					<a href="{PHP|cot_url('admin','m=cache&s=disk')}" class="ajax list-group-item">{PHP.L.adm_diskcache}</a>
+					<a href="{PHP|cot_url('admin','m=log')}"  class="ajax list-group-item">{PHP.L.Log}</a>
+					<a href="{PHP|cot_url('admin','m=infos')}"  class="ajax list-group-item">{PHP.L.adm_infos}</a>
 			</div>
 		</div>
 		<!-- BEGIN: SIDEPANEL -->

@@ -169,6 +169,9 @@ body {
 
 .whitebkg {background-color: @palette-White-500;}
 
+.panel .table {
+	margin-bottom: 0;
+}
 .panel .table tr {
 	td:first-of-type, th:first-of-type {padding-left: 15px; }
 	td:last-of-type, th:last-of-type {padding-right: 15px; }
@@ -180,4 +183,10 @@ body {
 }
 .table > thead > tr > th {
   border-bottom: 1px solid @palette-Grey-300;
+}
+
+.list-group {
+	border: 1px solid @panel-default-border;
+	
+	.list-group-item {border: none;}
 }

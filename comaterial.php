@@ -20,7 +20,7 @@ Schemes=default:Default
 defined('COT_CODE') or die('Wrong URL');
 
 global $cfg;
-/*
+
 function compile_botstrap_less_adm ($theme, $input, $output='', $compress =false)
 {
 	global $cfg;
@@ -64,7 +64,7 @@ function compile_botstrap_less_adm ($theme, $input, $output='', $compress =false
 	file_put_contents($output, $css);
 	return true;
 }
-compile_botstrap_less_adm($cfg['admintheme'], $cfg['admintheme'].'', $cfg['admintheme'].'');*/
+compile_botstrap_less_adm($cfg['admintheme'], $cfg['admintheme'].'', $cfg['admintheme'].'');
 cot_rc_add_file($cfg['themes_dir'].'/admin/'.$cfg['admintheme'].'/css/'.$cfg['admintheme'].'.css');
 cot_rc_add_file($cfg['themes_dir'].'/admin/'.$cfg['admintheme'].'/css/font-awesome.css');
 cot_rc_link_footer($cfg['themes_dir'].'/admin/'.$cfg['admintheme'].'/js/comaterial.js');
