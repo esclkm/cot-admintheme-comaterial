@@ -1,32 +1,29 @@
 <!-- BEGIN: ERROR -->
-<div class="error">
+<div class="alert alert-danger">
 	<h4>{PHP.L.Error}</h4>
-	<ul>
+
 		<!-- BEGIN: ERROR_ROW -->
-		<li>{ERROR_ROW_MSG}</li>
+		<div>{ERROR_ROW_MSG}</div>
 		<!-- END: ERROR_ROW -->
-	</ul>
-</div>
+
+</div>  
 <!-- END: ERROR -->
 
 <!-- BEGIN: WARNING -->
-<div class="warning">
+<div class="alert alert-warning">
 	<h4>{PHP.L.Warning}</h4>
-	<ul>
 		<!-- BEGIN: WARNING_ROW -->
-		<li>{WARNING_ROW_MSG}</li>
+		<div>{WARNING_ROW_MSG}</div>
 		<!-- END: WARNING_ROW -->
-	</ul>
-</div>
+
+</div> 
 <!-- END: WARNING -->
 
 <!-- BEGIN: DONE -->
-<div class="done">
+<div class="alert alert-success">
 	<h4>{PHP.L.Done}</h4>
-	<ul>
 		<!-- BEGIN: DONE_ROW -->
-		<li>{DONE_ROW_MSG}</li>
+		<div>{DONE_ROW_MSG}</div>
 		<!-- END: DONE_ROW -->
-	</ul>
 </div>
 <!-- END: DONE -->

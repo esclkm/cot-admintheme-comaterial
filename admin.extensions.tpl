@@ -1,5 +1,5 @@
 <!-- BEGIN: MAIN -->
-{FILE "{PHP.cfg.themes_dir}/admin/cpanel/warnings.tpl"}
+{FILE "{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/warnings.tpl"}
 
 <!-- BEGIN: DETAILS -->
 
@@ -237,6 +237,7 @@
 <!-- END: HOOKS -->
 
 <!-- BEGIN: DEFAULT -->
+
 <ul class="nav nav-pills">
 	<li class="<!-- IF {ADMIN_EXTENSIONS_SORT_ALP_SEL} -->active<!-- ENDIF -->"><a
        href="{ADMIN_EXTENSIONS_SORT_ALP_URL}"><span class="fa fa-sort-alpha-asc"></span> {PHP.L.adm_sort_alphabet}</a></li>
@@ -250,72 +251,80 @@
 <!-- BEGIN: SECTION-->
 <h2>{ADMIN_EXTENSIONS_SECTION_TITLE} ({ADMIN_EXTENSIONS_CNT_EXTP})</h2>
 <div class="panel panel-default">
-    <div class="panel-body">
-
-
+    <div class="panel-body panel-nopadding extenions-list">
             <!-- BEGIN: ROW -->
             <!-- BEGIN: ROW_CAT -->
-			<div class="">
-				<h4>{ADMIN_EXTENSIONS_CAT_TITLE}</h4>
-			</div>
-            <!-- END: ROW_CAT -->
-            <!-- BEGIN: ROW_ERROR_EXT -->
-			<div class="row hidden-sm hidden-xs ">
-				<div class="col-md-offset-1 col-md-3">{ADMIN_EXTENSIONS_X_ERR}</div>
-				<div class="col-md-8">{ADMIN_EXTENSIONS_ERROR_MSG}</div>
-			</div>
-            <!-- END: ROW_ERROR_EXT -->
-			<div class="row ">
-				<div class="col-xs-2 col-md-1 text-center">
-					<!-- IF {ADMIN_EXTENSIONS_ICO} -->
-					<img src="{ADMIN_EXTENSIONS_ICO}" />
+	</div>
+</div>
+<h3>{ADMIN_EXTENSIONS_CAT_TITLE}</h3>
+<div class="panel panel-default">			
+	<div class="panel-body panel-nopadding extenions-list">		
+		<!-- END: ROW_CAT -->
+
+		<div class="extension <!-- IF {ADMIN_EXTENSIONS_STATUS} == {PHP.R.admin_code_notinstalled} -->extnotinstalled <!--ENDIF--> <!-- IF {ADMIN_EXTENSIONS_STATUS} == {PHP.R.admin_code_missing} -->extdanger <!--ENDIF--> <!-- IF {ADMIN_EXTENSIONS_STATUS} == {PHP.R.admin_code_paused} OR {ADMIN_EXTENSIONS_STATUS} == {PHP.R.admin_code_partrunning} -->extwarning<!-- ENDIF -->">
+
+			<!-- IF {ADMIN_EXTENSIONS_ICO} -->
+			<img class="exticon" src="{ADMIN_EXTENSIONS_ICO}" />
+			<!-- ELSE -->
+			<img class="exticon" src="{PHP.cfg.system_dir}/admin/img/plugins32.png" />
+			<!-- ENDIF -->
+			<div class="extbody">
+				<h4>
+					<a href="{ADMIN_EXTENSIONS_DETAILS_URL}">{ADMIN_EXTENSIONS_NAME}</a> 
+					<!-- IF {PHP.part_status} != 3 AND {ADMIN_EXTENSIONS_VERSION_COMPARE} > 0 -->
+					<span class="text-danger">{ADMIN_EXTENSIONS_VERSION_INSTALLED} -> {ADMIN_EXTENSIONS_VERSION}</span>
 					<!-- ELSE -->
-					<img src="{PHP.cfg.system_dir}/admin/img/plugins32.png" />
+					<span class="text-info">{ADMIN_EXTENSIONS_VERSION}</span>
 					<!-- ENDIF -->
-				</div>
-				<div class="col-xs-10 col-md-4">
-					<a href="{ADMIN_EXTENSIONS_DETAILS_URL}"><strong>{ADMIN_EXTENSIONS_NAME}</strong></a> <small>{ADMIN_EXTENSIONS_CODE_X}</small>
-					<div class="pull-right">
-						<!-- IF {PHP.part_status} != 3 AND {ADMIN_EXTENSIONS_VERSION_COMPARE} > 0 -->
-						<span class="text-danger">{ADMIN_EXTENSIONS_VERSION_INSTALLED} -> {ADMIN_EXTENSIONS_VERSION}</span>
-						<!-- ELSE -->
-						<span class="text-info">{ADMIN_EXTENSIONS_VERSION}</span>
+					<small>{ADMIN_EXTENSIONS_CODE_X}</small>
+					<small class="pull-right">
+
+						{ADMIN_EXTENSIONS_STATUS}
+					</small>
+
+				</h4>
+				<div class="extoptions">
+					<div class="help-block">{ADMIN_EXTENSIONS_DESCRIPTION|cot_string_truncate($this,150,1,0,'...')}</div>
+					<!-- BEGIN: ROW_ERROR_EXT -->
+					<div class="alert alert-danger" role="alert">
+						<strong>{ADMIN_EXTENSIONS_X_ERR}</strong> {ADMIN_EXTENSIONS_ERROR_MSG}
+					</div>
+					<!-- END: ROW_ERROR_EXT -->
+					<!-- IF {ADMIN_EXTENSIONS_STATUS} == {PHP.R.admin_code_running} -->
+					<div class="optionsbar">
+						<!-- IF {ADMIN_EXTENSIONS_TOTALCONFIG} -->
+						<a title="{PHP.L.Configuration}" href="{ADMIN_EXTENSIONS_EDIT_URL}" class="btn btn-link btn-sm marginbottom10">
+							<span class="fa fa-wrench"></span> {PHP.L.short_config}</a>
+						<!-- ENDIF -->
+						<!-- IF {PHP.ifstruct} -->
+						<a title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}" class="btn btn-link btn-sm marginbottom10">
+							<span class="fa fa-sitemap"></span> {PHP.L.short_struct}</a>
+						<!-- ENDIF -->
+						<!-- IF {PHP.totalinstalled} -->
+						<a title="{PHP.L.Rights}" href="{ADMIN_EXTENSIONS_RIGHTS_URL}" class="btn btn-link btn-sm marginbottom10">
+							<span class="fa fa-users"></span> {PHP.L.short_rights}</a>
+						<!-- ENDIF -->
+						<!-- IF {PHP.ifthistools} -->
+						<a title="{PHP.L.Administration}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS}" class="btn btn-link btn-sm marginbottom10">
+							<span class="fa fa-cogs"></span> {PHP.L.short_admin}</a>
+						<!-- ENDIF -->
+						<!-- IF {PHP.if_plg_standalone} -->
+						<a title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}" class="btn btn-link btn-sm marginbottom10">
+							<span class="fa fa-folder-open"></span> {PHP.L.Open}</a>
 						<!-- ENDIF -->
 					</div>
-					<p class="help-block">{ADMIN_EXTENSIONS_DESCRIPTION|cot_string_truncate($this,150,1,0,'...')}</p>
-					<div class="visible-xs visible-sm">{ADMIN_EXTENSIONS_STATUS}</div>
-				</div>
-				<div class="col-md-2 text-center hidden-sm hidden-xs">{ADMIN_EXTENSIONS_STATUS}</div>
-				<div class="col-md-5 hidden-sm hidden-xs">
-                    <!-- IF {ADMIN_EXTENSIONS_TOTALCONFIG} -->
-					<a title="{PHP.L.Configuration}" href="{ADMIN_EXTENSIONS_EDIT_URL}" class="btn btn-link btn-sm marginbottom10">
-                        <span class="fa fa-wrench"></span> {PHP.L.short_config}</a>
-                    <!-- ENDIF -->
-                    <!-- IF {PHP.ifstruct} -->
-					<a title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}" class="btn btn-link btn-sm marginbottom10">
-                        <span class="fa fa-sitemap"></span> {PHP.L.short_struct}</a>
-                    <!-- ENDIF -->
-                    <!-- IF {PHP.totalinstalled} -->
-					<a title="{PHP.L.Rights}" href="{ADMIN_EXTENSIONS_RIGHTS_URL}" class="btn btn-link btn-sm marginbottom10">
-                        <span class="fa fa-users"></span> {PHP.L.short_rights}</a>
-                    <!-- ENDIF -->
-                    <!-- IF {PHP.ifthistools} -->
-					<a title="{PHP.L.Administration}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS}" class="btn btn-link btn-sm marginbottom10">
-                        <span class="fa fa-cogs"></span> {PHP.L.short_admin}</a>
-                    <!-- ENDIF -->
-                    <!-- IF {PHP.if_plg_standalone} -->
-					<a title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}" class="btn btn-link btn-sm marginbottom10">
-                        <span class="fa fa-folder-open"></span> {PHP.L.Open}</a>
-                    <!-- ENDIF -->
+					<!-- ENDIF -->
 				</div>
 			</div>
-            <!-- END: ROW -->
-            <!-- BEGIN: ROW_ERROR -->
-			<div class="row hidden-sm hidden-xs ">
-				<div class="col-md-offset-1 col-md-3">{ADMIN_EXTENSIONS_X}</div>
-				<div class="col-md-8">{PHP.L.adm_opt_setup_missing}</div>
-			</div>
-            <!-- END: ROW_ERROR -->
+
+		</div>
+		<!-- END: ROW -->
+		<!-- BEGIN: ROW_ERROR -->
+		<div class="row hidden-sm hidden-xs ">
+			<div class="col-md-offset-1 col-md-3">{ADMIN_EXTENSIONS_X}</div>
+			<div class="col-md-8">{PHP.L.adm_opt_setup_missing}</div>
+		</div>
+		<!-- END: ROW_ERROR -->
 
 	</div>
 </div>

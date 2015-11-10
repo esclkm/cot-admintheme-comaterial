@@ -61,6 +61,7 @@
 			{
 				background-color: @color_hover2;
 			}
+			.shadow-level(1);
 			
 		}
 
@@ -74,12 +75,12 @@
 				#gradient > .radial(@color_hover2 10%, @bg 11%);
 			}
 			background-size: 1000%;
-			.box-shadow(2px 2px 2px rgba(0,0,0,.3));
+			.shadow-level(1);
 		}
 	}
 }
 
-#btn(default,@btn-default-bg);
+#btn(default,#f9f9f9);
 #btn(primary,@btn-primary-bg);
 #btn(success,@btn-success-bg);
 #btn(info,@btn-info-bg);

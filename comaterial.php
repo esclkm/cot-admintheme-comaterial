@@ -147,6 +147,14 @@ if(!function_exists('get_readmemd'))
 	}
 }
 
+// Status indicators
+$R['admin_code_missing'] = '<span class="label label-danger">'.$L['adm_missing'].'</span>';
+$R['admin_code_notinstalled'] = '<span class="label label-danger">'.$L['adm_notinstalled'].'</span>';
+$R['admin_code_partrunning'] = '<span class="label label-warning">'.$L['adm_partrunning'].'</span>';
+$R['admin_code_paused'] = '<span class="label label-warning">'.$L['adm_paused'].'</span>';
+$R['admin_code_present'] = '<span class="label label-warning">'.$L['adm_present'].'</span>';
+$R['admin_code_running'] = '<span class="label label-success">'.$L['adm_running'].'</span>';
+
 /* Extra Fields */
 $L['ExtraFields'] = 'Extra Fields';
 $L['ShowAllTables'] = 'Show all database tables';

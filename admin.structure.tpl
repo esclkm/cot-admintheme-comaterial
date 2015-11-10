@@ -157,43 +157,43 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 
-			<div class="row hidden-sm hidden-xs">
-				<div class="col-md-1">{PHP.L.Path}</div>
-				<div class="col-md-1">{PHP.L.Code}</div>
-				<div class="col-md-3">{PHP.L.Title}</div>
-				<div class="col-md-1 hidden-md">{PHP.L.TPL}</div>
-				<div class="col-md-1">{PHP.L.Pages}</div>
-				<div class="col-md-5">{PHP.L.Action}</div>
-			</div>
-				<!-- BEGIN: ROW -->
-			<div class="row paddingbottom5">
-				<div class="col-md-1 col-xs-6"><span class="nowrap" style="margin-left: {ADMIN_STRUCTURE_LEVEL}0px;">{ADMIN_STRUCTURE_PATH}</span></div>
-				<div class="col-md-1 hidden-sm hidden-xs">{ADMIN_STRUCTURE_CODE}</div>
-				<div class="col-md-3 col-xs-6">{ADMIN_STRUCTURE_TITLE}</div>
-				<div class="col-md-1 hidden-sm hidden-xs  hidden-md">{ADMIN_STRUCTURE_TPLQUICK}</div>
-				<div class="col-md-1 text-center hidden-sm hidden-xs"><span class="control-label">{ADMIN_STRUCTURE_COUNT}</span></div>
-				<div class="col-md-5">
-					<div class="btn-group2" role="group" aria-label="...">
-						<!-- IF {ADMIN_STRUCTURE_OPTIONS_URL} --><a href="{ADMIN_STRUCTURE_OPTIONS_URL}" title="{PHP.L.Edit}" class="ajax btn btn-link"><i class="fa fa-pencil"></i> {PHP.L.Edit}</a><!-- ENDIF -->
-						<!-- IF {ADMIN_STRUCTURE_RIGHTS_URL} --><a href="{ADMIN_STRUCTURE_RIGHTS_URL}" title="{PHP.L.short_rights}" class="btn btn-link"><i class="fa fa-lock"></i> {PHP.L.short_rights}</a><!-- ENDIF -->
-						<!-- IF {ADMIN_STRUCTURE_JUMPTO_URL} --><a href="{ADMIN_STRUCTURE_JUMPTO_URL}" title="{PHP.L.short_open}" target="_blank" class="btn btn-link"><i class="fa fa-external-link"></i> {PHP.L.short_open}</a><!-- ENDIF -->
-						<!-- IF {PHP.n} == 'page' --><a href="{PHP.structure_code|cot_url('page', 'm=add&c=$this')}" title="{PHP.L.Add}" target="_blank" class="btn btn-link hidden-md"><i class="fa fa-plus-circle"></i>  {PHP.L.Add}</a><!-- ENDIF -->
+		<div class="row hidden-sm hidden-xs">
+			<div class="col-md-1">{PHP.L.Path}</div>
+			<div class="col-md-1">{PHP.L.Code}</div>
+			<div class="col-md-3">{PHP.L.Title}</div>
+			<div class="col-md-1 hidden-md">{PHP.L.TPL}</div>
+			<div class="col-md-1">{PHP.L.Pages}</div>
+			<div class="col-md-5">{PHP.L.Action}</div>
+		</div>
+			<!-- BEGIN: ROW -->
+		<div class="row paddingbottom5">
+			<div class="col-md-1 col-xs-6"><span class="nowrap" style="margin-left: {ADMIN_STRUCTURE_LEVEL}0px;">{ADMIN_STRUCTURE_PATH}</span></div>
+			<div class="col-md-1 hidden-sm hidden-xs">{ADMIN_STRUCTURE_CODE}</div>
+			<div class="col-md-3 col-xs-6">{ADMIN_STRUCTURE_TITLE}</div>
+			<div class="col-md-1 hidden-sm hidden-xs  hidden-md">{ADMIN_STRUCTURE_TPLQUICK}</div>
+			<div class="col-md-1 text-center hidden-sm hidden-xs"><span class="control-label">{ADMIN_STRUCTURE_COUNT}</span></div>
+			<div class="col-md-5">
+				<div class="btn-group2" role="group" aria-label="...">
+					<!-- IF {ADMIN_STRUCTURE_OPTIONS_URL} --><a href="{ADMIN_STRUCTURE_OPTIONS_URL}" title="{PHP.L.Edit}" class="ajax btn btn-link"><i class="fa fa-pencil"></i> {PHP.L.Edit}</a><!-- ENDIF -->
+					<!-- IF {ADMIN_STRUCTURE_RIGHTS_URL} --><a href="{ADMIN_STRUCTURE_RIGHTS_URL}" title="{PHP.L.short_rights}" class="btn btn-link"><i class="fa fa-lock"></i> {PHP.L.short_rights}</a><!-- ENDIF -->
+					<!-- IF {ADMIN_STRUCTURE_JUMPTO_URL} --><a href="{ADMIN_STRUCTURE_JUMPTO_URL}" title="{PHP.L.short_open}" target="_blank" class="btn btn-link"><i class="fa fa-external-link"></i> {PHP.L.short_open}</a><!-- ENDIF -->
+					<!-- IF {PHP.n} == 'page' --><a href="{PHP.structure_code|cot_url('page', 'm=add&c=$this')}" title="{PHP.L.Add}" target="_blank" class="btn btn-link hidden-md"><i class="fa fa-plus-circle"></i>  {PHP.L.Add}</a><!-- ENDIF -->
 
-						<!-- IF {PHP.dozvil} --><a href="{ADMIN_STRUCTURE_UPDATE_DEL_URL}" title="{PHP.L.short_delete}" class="confirmLink btn btn-link text-danger"><i class="fa fa-trash-o"></i> {PHP.L.short_delete}</a><!-- ENDIF -->
-					</div>
+					<!-- IF {PHP.dozvil} --><a href="{ADMIN_STRUCTURE_UPDATE_DEL_URL}" title="{PHP.L.short_delete}" class="confirmLink btn btn-link text-danger"><i class="fa fa-trash-o"></i> {PHP.L.short_delete}</a><!-- ENDIF -->
 				</div>
 			</div>
-				<!-- END: ROW -->
-			<div class="action_bar valid">
-				
-				<p class="paging">{ADMIN_STRUCTURE_PAGINATION_PREV}{ADMIN_STRUCTURE_PAGNAV}{ADMIN_STRUCTURE_PAGINATION_NEXT} <span>{PHP.L.Total}: {ADMIN_STRUCTURE_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_STRUCTURE_COUNTER_ROW}</span></p>
-			</div>
-		
+		</div>
+			<!-- END: ROW -->
+		<div class="action_bar valid">
+
+			<p class="paging">{ADMIN_STRUCTURE_PAGINATION_PREV}{ADMIN_STRUCTURE_PAGNAV}{ADMIN_STRUCTURE_PAGINATION_NEXT} <span>{PHP.L.Total}: {ADMIN_STRUCTURE_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_STRUCTURE_COUNTER_ROW}</span></p>
+		</div>
+		<div class="action_bar valid">
+			<button type="submit" class="submit btn btn-success">{PHP.L.Update}</button>
+		</div>
 	</div>
 </div>
-<div class="action_bar valid">
-	<button type="submit" class="submit btn btn-success">{PHP.L.Update}</button>
-</div>
+
 </form>			
 <!-- END: DEFAULT -->
 
@@ -226,12 +226,12 @@
 			<!-- END: EXTRAFLD -->
 		</div>
 			
-
+		<div class="">
+			<button type="submit" class="submit btn btn-success">{PHP.L.Add}</button>
+		</div>
 	</div>
 </div>
-<div class="action_bar valid marginbottom20">
-	<button type="submit" class="submit btn btn-success">{PHP.L.Add}</button>
-</div>		
+		
 </form>
 <!-- END: NEWCAT -->
 

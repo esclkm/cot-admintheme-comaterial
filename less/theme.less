@@ -29,7 +29,7 @@ body {
 	#logo {
 		border-bottom: 1px solid @palette-Grey-300;
 		display: block;
-		height: 64px;
+		/*height: 64px;*/
 		padding: 12px 0 11px 24px;
 		font-size: 22px;
 		position: relative;
@@ -65,7 +65,12 @@ body {
 
 #header {
 	position: fixed;
-	height: 64px;
+	font-size: 16px;
+	@media (min-width: @screen-md-min) {
+			font-size: 22px;
+			position: fixed;
+	}
+	/*height: 64px;*/
 	z-index: 99;
 	top:0;
 	right:0;
@@ -79,8 +84,13 @@ body {
 	
 	.breadcrumb {
 		background-color: transparent;
-		padding-left:35px;
-
+		padding: 7px 15px 7px 35px;
+		line-height:1.4;
+		@media (min-width: @screen-md-min) {		
+			padding: 12px 15px 12px 35px;
+			line-height:@line-height-base;
+		}
+		margin-bottom:0px;
 		a {
 			color: #fff;
 			&:hover {
@@ -189,4 +199,60 @@ body {
 	border: 1px solid @panel-default-border;
 	
 	.list-group-item {border: none;}
+}
+
+#ajaxBlock {position: static!important;}
+.panel-nopadding
+{
+	padding:0;
+}
+
+.queries table {
+	td{font-size: 0.8em; word-wrap: true;padding:2px;}
+	td:nth-child(1) {
+		width: 3%;
+	}
+	td:nth-child(2) {
+		width: 4%;
+	}
+	td:nth-child(3) {
+		width: 4%;
+	}
+	td:nth-child(4) {
+		width: 20%;
+	}
+	
+	td {border-top: 1px solid #f9f9f9;}
+	td+td{border-left: 1px solid #f9f9f9;}
+}
+
+.extenions-list {
+	.extension{
+		
+		padding: @panel-body-padding;
+		position:relative;
+		.extoptions{position:relative;}
+		.nooptionsbar{display: block;}
+		.help-block {
+			font-size: 12px;
+			line-height: 1.5;}
+		.optionsbar {display: none; position: absolute; top:0; bottom: 0; left: 0;right:0; background: @list-group-hover-bg;}
+		.extbody {padding-left:54px;}
+		.exticon {position: absolute; margin-top: -16px; top:50%}
+		h4 {margin-top: 0; margin-bottom: 8px;}
+		
+		&:hover{
+			background:@list-group-hover-bg;
+			.optionsbar {display: block;}
+		}
+		&.extnotinstalled {
+			background:@palette-Brown-50;
+		}		
+		&.extdanger {
+			background:@palette-Red-50;
+		}
+		&.extwarning {
+			background:@palette-Orange-50;
+		}		
+	}
 }

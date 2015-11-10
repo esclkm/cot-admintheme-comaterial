@@ -11,3 +11,10 @@ $(document).on('click', '#navshade', function(e) {
 	$('#navbar').removeClass('show');
 	return false;
 });
+
+$(document).ready(function(){
+	$('body').css('margin-top', $('#header').height());	
+	$(window).bind('resize', function () { 
+		$('body').css('margin-top', $('#header').height());
+	});
+})

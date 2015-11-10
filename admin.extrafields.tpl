@@ -1,5 +1,5 @@
 <!-- BEGIN: MAIN -->
-{FILE "{PHP.cfg.themes_dir}/admin/cpanel/warnings.tpl"}
+{FILE "{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/warnings.tpl"}
 
 <!-- BEGIN: TABLELIST -->
 <div class="list-group">
@@ -228,10 +228,11 @@
 		<span class="fa fa-refresh"></span> {PHP.L.Update}</button>
 </div>
 <h3>{PHP.L.adm_extrafield_new}</h3>
+<form action="{ADMIN_EXTRAFIELDS_URL_FORM_ADD}" method="post">
 <div class="panel panel-default">
     <div class="panel-body">
 
-        <form action="{ADMIN_EXTRAFIELDS_URL_FORM_ADD}" method="post">
+        
 
             <table class="width100">
                 <tr id="exnew">
@@ -294,12 +295,13 @@
                     </td>
                 </tr>
             </table>
-        </form>
+       
 
     </div>
 </div>
 <div class="marginbottom20 text-left">							
 	<button type="submit" class="btn btn-primary"><span class="fa fa-plus"></span> {PHP.L.Add}</button>
 </div>
+ </form>
 <!-- END: TABLE -->
 <!-- END: MAIN -->

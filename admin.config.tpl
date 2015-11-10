@@ -1,5 +1,5 @@
 <!-- BEGIN: MAIN -->
-{FILE "{PHP.cfg.themes_dir}/admin/cpanel/warnings.tpl"}
+{FILE "{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/warnings.tpl"}
 
 <!-- BEGIN: EDIT -->
 <form name="saveconfig" id="saveconfig" action="{ADMIN_CONFIG_FORM_URL}" method="post" class="ajax">
@@ -33,12 +33,12 @@
         <!-- END: ADMIN_CONFIG_ROW_OPTION -->
         <!-- END: ADMIN_CONFIG_ROW -->
 		</div>
-
+		<div class="">
+			<button type="submit" class="btn btn-primary">{PHP.L.Update}</button>
+		</div>
     </div>
 </div>
-<div>
-	<button type="submit" class="btn btn-primary">{PHP.L.Update}</button>
-</div>
+
 </form>
 <!-- END: EDIT -->
 
