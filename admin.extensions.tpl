@@ -63,26 +63,27 @@
 				</dl>
 			</div>
 		</div>
+		<div class="text-right">
+			<!-- IF !{PHP.isinstalled} AND {PHP.dependencies_satisfied} -->
+			<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_INSTALL_URL}" class="btn btn-success"
+			   data-toggle="tooltip"><span class="fa fa-check"></span> {PHP.L.adm_opt_install}</a>
+			<!-- ENDIF -->
+			<!-- IF {PHP.isinstalled} -->
+			<!-- IF {PHP.exists} -->
+			<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_UPDATE_URL}" class="btn btn-primary"
+			   data-toggle="tooltip"><span class="fa fa-refresh"></span> {PHP.L.adm_opt_update}</a>
+			<!-- ENDIF -->
+
+			<a title="{PHP.L.adm_opt_uninstall_explain}" href="{ADMIN_EXTENSIONS_UNINSTALL_URL}" class="btn btn-danger"
+			   data-toggle="tooltip"><span class="fa fa-trash-o"></span> {PHP.L.adm_opt_uninstall}</a>
+			<!-- ENDIF -->
+		</div>
 	</div>
 </div>
 							
-<div class="marginbottom20 pull-right">
-	<!-- IF !{PHP.isinstalled} AND {PHP.dependencies_satisfied} -->
-	<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_INSTALL_URL}" class="btn btn-success"
-	   data-toggle="tooltip"><span class="fa fa-check"></span> {PHP.L.adm_opt_install}</a>
-	<!-- ENDIF -->
-	<!-- IF {PHP.isinstalled} -->
-	<!-- IF {PHP.exists} -->
-	<a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_UPDATE_URL}" class="btn btn-primary"
-	   data-toggle="tooltip"><span class="fa fa-refresh"></span> {PHP.L.adm_opt_update}</a>
-	<!-- ENDIF -->
 
-	<a title="{PHP.L.adm_opt_uninstall_explain}" href="{ADMIN_EXTENSIONS_UNINSTALL_URL}" class="btn btn-danger"
-	   data-toggle="tooltip"><span class="fa fa-trash-o"></span> {PHP.L.adm_opt_uninstall}</a>
-	<!-- ENDIF -->
-</div>
 <!-- IF {PHP.isinstalled} AND {PHP.exists} -->
-<ul class="marginbottom20 nav nav-pills">
+<ul class="marginbottom20 nav nav-pills nav-extpanel">
 		<!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL} -->
 		<li><a title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}" class="">
 				<span class="fa fa-folder-open"></span> {PHP.L.Open}</a></li>
@@ -101,6 +102,10 @@
 		<li><a title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}" class="">
 			<span class="fa fa-sitemap"></span> {PHP.L.Structure}</a></li>
 		<!-- ENDIF -->
+		<!-- FOR {INDEX} IN {ADMIN_EXTENSIONS_CODE|get_db_extrafields} -->
+		<li><a title="{PHP.L.adm_extrafields_table}" href="{INDEX.url}" class="">
+			<span class="fa fa-database"></span> {PHP.L.adm_extrafields_table} {INDEX.name}</a></li>
+		<!-- ENDFOR -->
 </ul>
 <!-- ENDIF -->
 
@@ -174,19 +179,22 @@
 					</td>
 				</tr>
 				<!-- END: ROW_PART -->
-			</table>      
-		</div>
-		<div class="text-right">
-			<!-- IF {PHP.isinstalled} -->
-			<a title="{PHP.L.adm_opt_pauseall_explain}" href="{ADMIN_EXTENSIONS_PAUSE_URL}" class="btn btn-warning marginbottom10"
-			   data-toggle="tooltip"><span class="fa fa-pause"></span> {PHP.L.adm_opt_pauseall}</a>
+			</table>
+			<div class="panel-footer">
+				<div class="text-right">
+					<!-- IF {PHP.isinstalled} -->
+					<a title="{PHP.L.adm_opt_pauseall_explain}" href="{ADMIN_EXTENSIONS_PAUSE_URL}" class="btn btn-warning marginbottom10"
+					   data-toggle="tooltip"><span class="fa fa-pause"></span> {PHP.L.adm_opt_pauseall}</a>
 
-			<!-- IF {PHP.exists} -->
-			<a title="{PHP.L.adm_opt_unpauseall_explain}" href="{ADMIN_EXTENSIONS_UNPAUSE_URL}" class="btn btn-primary marginbottom10"
-			   data-toggle="tooltip"><span class="fa fa-play"></span> {PHP.L.adm_opt_unpauseall}</a>
-			<!-- ENDIF -->
-			<!-- ENDIF -->
+					<!-- IF {PHP.exists} -->
+					<a title="{PHP.L.adm_opt_unpauseall_explain}" href="{ADMIN_EXTENSIONS_UNPAUSE_URL}" class="btn btn-primary marginbottom10"
+					   data-toggle="tooltip"><span class="fa fa-play"></span> {PHP.L.adm_opt_unpauseall}</a>
+					<!-- ENDIF -->
+					<!-- ENDIF -->
+				</div>							
+			</div>
 		</div>
+
 	</div>
 <!-- IF {ADMIN_EXTENSIONS_DETAILS_ROW_LISTTAGS} -->
 <div class="visible-md visible-lg">

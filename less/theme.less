@@ -236,7 +236,7 @@ body {
 		.help-block {
 			font-size: 12px;
 			line-height: 1.5;}
-		.optionsbar {display: none; position: absolute; top:0; bottom: 0; left: 0;right:0; background: @list-group-hover-bg;}
+		.optionsbar {display: none; position: absolute; top:-5px; bottom: 0; left: 0;right:0; background: @list-group-hover-bg;}
 		.extbody {padding-left:54px;}
 		.exticon {position: absolute; margin-top: -16px; top:50%}
 		h4 {margin-top: 0; margin-bottom: 8px;}
@@ -255,4 +255,12 @@ body {
 			background:@palette-Orange-50;
 		}		
 	}
+}
+.list-striped .list-group-item:nth-child(2n) {
+		background:@palette-Grey-50;
+}
+
+.nav-extpanel {
+	li > a {display: block; text-align: center;  padding: 10px 20px;}
+	.fa {display:block; margin:0 auto; padding:10px; font-size: 48px;}
 }

@@ -20,51 +20,53 @@ Schemes=default:Default
 defined('COT_CODE') or die('Wrong URL');
 
 global $cfg;
-
-function compile_botstrap_less_adm ($theme, $input, $output='', $compress =false)
+if(class_exists('Less_Parser'))
 {
-	global $cfg;
-	$output = empty($output) ? $input : $output;
-	$output = $cfg['themes_dir'].'/admin/'.$theme.'/css/'.$output.'.css';
-	$input = $cfg['themes_dir'].'/admin/'.$theme.'/less/'.$input.'.less';
-	if (file_exists($output) && file_exists($input))
+	function compile_botstrap_less_adm ($theme, $input, $output='', $compress =false)
 	{
-		$filetimecss = filemtime($output);
-		$filetimeless = filemtime($input);
-	//	cot_print('css', cot_date('datetime_full', $filetimecss), 'less', cot_date('datetime_full', $filetimeless), cot_date('datetime_full'), $filetimecss > $filetimeless);
-		if($filetimecss > $filetimeless)
+		global $cfg;
+		$output = empty($output) ? $input : $output;
+		$output = $cfg['themes_dir'].'/admin/'.$theme.'/css/'.$output.'.css';
+		$input = $cfg['themes_dir'].'/admin/'.$theme.'/less/'.$input.'.less';
+		if (file_exists($output) && file_exists($input))
 		{
-			return false;
+			$filetimecss = filemtime($output);
+			$filetimeless = filemtime($input);
+		//	cot_print('css', cot_date('datetime_full', $filetimecss), 'less', cot_date('datetime_full', $filetimeless), cot_date('datetime_full'), $filetimecss > $filetimeless);
+			if($filetimecss > $filetimeless)
+			{
+				return false;
+			}
+			else
+			{
+				unlink($output);
+			//	cot_print("deleted");
+			}
 		}
-		else
-		{
-			unlink($output);
-		//	cot_print("deleted");
-		}
-	}
 
-	$options = array('relativeUrls' => false);
-	if($compress)
-	{
-		$options['compress'] = true;
+		$options = array('relativeUrls' => false);
+		if($compress)
+		{
+			$options['compress'] = true;
+		}
+
+		$parser = new Less_Parser($options);
+		$parser->SetImportDirs(array($cfg['themes_dir'].'/admin/'.$theme.'/less' => $cfg['themes_dir'].'/admin/'.$theme.'/less',
+			$cfg['plugins_dir']."/bootstrap/bootstrap/less" => $cfg['plugins_dir']."/bootstrap/bootstrap/less"));
+
+		$parser->parseFile($input);
+		$css = $parser->getCss();
+
+		if(!file_exists ($cfg['themes_dir'].'/admin/'.$theme.'/css'))
+		{
+			mkdir($cfg['themes_dir'].'/admin/'.$theme.'/css');
+		}
+
+		file_put_contents($output, $css);
+		return true;
 	}
-	
-	$parser = new Less_Parser($options);
-	$parser->SetImportDirs(array($cfg['themes_dir'].'/admin/'.$theme.'/less' => $cfg['themes_dir'].'/admin/'.$theme.'/less',
-		$cfg['plugins_dir']."/bootstrap/bootstrap/less" => $cfg['plugins_dir']."/bootstrap/bootstrap/less"));
-	
-	$parser->parseFile($input);
-	$css = $parser->getCss();
-	
-	if(!file_exists ($cfg['themes_dir'].'/admin/'.$theme.'/css'))
-	{
-		mkdir($cfg['themes_dir'].'/admin/'.$theme.'/css');
-	}
-	
-	file_put_contents($output, $css);
-	return true;
+	compile_botstrap_less_adm($cfg['admintheme'], $cfg['admintheme'].'', $cfg['admintheme'].'');
 }
-compile_botstrap_less_adm($cfg['admintheme'], $cfg['admintheme'].'', $cfg['admintheme'].'');
 cot_rc_add_file($cfg['themes_dir'].'/admin/'.$cfg['admintheme'].'/css/'.$cfg['admintheme'].'.css');
 cot_rc_add_file($cfg['themes_dir'].'/admin/'.$cfg['admintheme'].'/css/font-awesome.css');
 cot_rc_link_footer($cfg['themes_dir'].'/admin/'.$cfg['admintheme'].'/js/comaterial.js');
@@ -146,6 +148,55 @@ if(!function_exists('get_readmemd'))
 		return $text;
 	}
 }
+if(!isset($extensions_extflds))
+{
+		$extra_blacklist = array($db_auth, $db_cache, $db_cache_bindings, $db_core, $db_updates, $db_logger, $db_online, $db_extra_fields, $db_config, $db_plugins);
+		$extra_whitelist = array(
+			$db_structure => array(
+				'name' => $db_structure,
+				'caption' => $L['Categories'],
+				'type' => 'system',
+				'code' => 'structure',
+				'tags' => array(
+					'page.list.tpl' => '{LIST_ROWCAT_XXXXX}, {LIST_CAT_XXXXX}',
+					'page.list.group.tpl' => '{LIST_ROWCAT_XXXXX}, {LIST_CAT_XXXXX}',
+					'page.tpl' => '{PAGE_CAT_XXXXX}, {PAGE_CAT_XXXXX_TITLE}',
+					'admin.structure.inc.tpl' => '{ADMIN_STRUCTURE_XXXXX}, {ADMIN_STRUCTURE_XXXXX_TITLE},{ADMIN_STRUCTURE_FORMADD_XXXXX}, {ADMIN_STRUCTURE_FORMADD_XXXXX_TITLE}'
+					)
+			)
+		);
+		/* === Hook === */
+		foreach (cot_getextplugins('admin.extrafields.first') as $pl)
+		{
+			include $pl;
+		}
+		/* ===== */
+		$extensions_extflds = $extra_whitelist;
+		unset($extra_blacklist);
+		unset($extra_whitelist);
+}
+if(!function_exists('get_db_extrafields'))
+{
+	function get_db_extrafields($extension)
+	{
+		global $extensions_extflds;
+
+		$ret = array();
+		foreach ($extensions_extflds as $key => $val)
+		{
+			if($extension == $val['code'])
+			{
+				$ret[] = array(
+					'name' => $val['name'],
+					'caption' => $val['caption'],
+					'url' => cot_url('admin', 'm=extrafields&n='.$val['name'])					
+				);
+			}
+		}
+		return $ret;
+	}
+}
+
 
 // Status indicators
 $R['admin_code_missing'] = '<span class="label label-danger">'.$L['adm_missing'].'</span>';

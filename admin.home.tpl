@@ -13,50 +13,42 @@
 		<!-- END: MAINPANEL -->
 
 			<h3>Cotonti:</h3>
-			<ul class="list-group">
-			  <li class="list-group-item">
-				<span class="badge">{ADMIN_HOME_VERSION}</span>{PHP.L.Version}
-			  </li>
-			  <li class="list-group-item">
-				<span class="badge">{ADMIN_HOME_DB_VERSION}</span>{PHP.L.Database}
-			  </li>			  
-			</ul>
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div>
-						{PHP.L.Version}
-						<div class="pull-right">{ADMIN_HOME_VERSION}</div>
-					</div>
-					<div>
-						{PHP.L.Database}
-						<div class="pull-right">{ADMIN_HOME_DB_VERSION}</div>
-					</div>
-					<div>
-						{PHP.L.home_db_rows}
-						<div class="pull-right">{ADMIN_HOME_DB_TOTAL_ROWS}</div>
-					</div>
-					<div>
-						{PHP.L.home_db_indexsize}
-						<div class="pull-right">{ADMIN_HOME_DB_INDEXSIZE}</div>
-					</div>
-					<div>
-						{PHP.L.home_db_datassize}
-						<div class="pull-right">{ADMIN_HOME_DB_DATASSIZE}</div>
-					</div>
-					<div>
-						{PHP.L.home_db_totalsize}
-						<div class="pull-right">{ADMIN_HOME_DB_TOTALSIZE}</div>
-					</div>
-					<div>
-						{PHP.L.Plugins}
-						<div class="pull-right">{ADMIN_HOME_TOTALPLUGINS}</div>
-					</div>
-					<div>
-						{PHP.L.Hooks}
-						<div class="pull-right">{ADMIN_HOME_TOTALHOOKS}</div>
-					</div>
+
+			<div class="list-group list-striped">
+				<div class="list-group-item">
+					{PHP.L.Version}
+					<div class="pull-right">{ADMIN_HOME_VERSION}</div>
 				</div>
-		</div>
+				<div class="list-group-item">
+					{PHP.L.Database}
+					<div class="pull-right">{ADMIN_HOME_DB_VERSION}</div>
+				</div>
+				<div class="list-group-item">
+					{PHP.L.home_db_rows}
+					<div class="pull-right">{ADMIN_HOME_DB_TOTAL_ROWS}</div>
+				</div>
+				<div class="list-group-item">
+					{PHP.L.home_db_indexsize}
+					<div class="pull-right">{ADMIN_HOME_DB_INDEXSIZE}</div>
+				</div>
+				<div class="list-group-item">
+					{PHP.L.home_db_datassize}
+					<div class="pull-right">{ADMIN_HOME_DB_DATASSIZE}</div>
+				</div>
+				<div class="list-group-item">
+					{PHP.L.home_db_totalsize}
+					<div class="pull-right">{ADMIN_HOME_DB_TOTALSIZE}</div>
+				</div>
+				<div class="list-group-item">
+					{PHP.L.Plugins}
+					<div class="pull-right">{ADMIN_HOME_TOTALPLUGINS}</div>
+				</div>
+				<div class="list-group-item">
+					{PHP.L.Hooks}
+					<div class="pull-right">{ADMIN_HOME_TOTALHOOKS}</div>
+				</div>
+			</div>
+
 	</div>
 
 	<div class="col-md-5">
